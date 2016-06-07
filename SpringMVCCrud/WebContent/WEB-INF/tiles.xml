@@ -1,0 +1,78 @@
+ <!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+
+
+<definition name="baseLayout" template="/WEB-INF/views/template/base.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="menu_esquerda" value="/WEB-INF/views/template/menu-esquerda.jsp"/>
+        <put-attribute name="baseContent" value="" />
+</definition>
+
+   <definition name="hello"  extends="baseLayout">
+      <put-attribute name="title"  value="Home"/>
+      <put-attribute name="body" value="/WEB-INF/views/hello.jsp" />
+   </definition>
+
+
+	<definition name="carro.contentBase" template="/WEB-INF/views/template/contentbase.jsp">
+	         <put-attribute name="baseTitulo" value="Carro" />
+	</definition>     
+	<definition name="carro"  extends="baseLayout">
+      <put-attribute name="title"  value="Carro"/>
+      <put-attribute name="baseContent" value="carro.contentBase" />
+   </definition>
+   <definition name="carro.lista"  extends="carro">
+      <put-attribute name="body" value="/WEB-INF/views/carro/lista.jsp" />
+   </definition>
+    <definition name="carro.form"  extends="carro">
+      <put-attribute name="body" value="/WEB-INF/views/carro/add.jsp" />
+   </definition>  
+   
+	<definition name="produto.contentBase" template="/WEB-INF/views/template/contentbase.jsp">
+	         <put-attribute name="baseTitulo" value="Produto" />
+	</definition>     
+	<definition name="produto"  extends="baseLayout">
+      <put-attribute name="title"  value="Produto"/>
+      <put-attribute name="baseContent" value="produto.contentBase" />
+   </definition>
+   <definition name="produto.lista"  extends="produto">
+      <put-attribute name="body" value="/WEB-INF/views/produto/lista.jsp" />
+   </definition>
+    <definition name="produto.form"  extends="produto">
+      <put-attribute name="body" value="/WEB-INF/views/produto/add.jsp" />
+   </definition>  
+   
+	<definition name="usuario.contentBase" template="/WEB-INF/views/template/contentbase.jsp">
+	         <put-attribute name="baseTitulo" value="Usuario" />
+	</definition>     
+	<definition name="usuario"  extends="baseLayout">
+      <put-attribute name="title"  value="Usuario"/>
+      <put-attribute name="baseContent" value="usuario.contentBase" />
+   </definition>
+   <definition name="usuario.lista"  extends="usuario">
+      <put-attribute name="body" value="/WEB-INF/views/usuario/lista.jsp" />
+   </definition>
+    <definition name="usuario.form"  extends="usuario">
+      <put-attribute name="body" value="/WEB-INF/views/usuario/add.jsp" />
+   </definition>  
+    <definition name="usuario.login"  template="/WEB-INF/views/usuario/login.jsp"/>
+
+   
+	<definition name="fornecedor.contentBase" template="/WEB-INF/views/template/contentbase.jsp">
+	         <put-attribute name="baseTitulo" value="Fornecedor" />
+	</definition>     
+	<definition name="fornecedor"  extends="baseLayout">
+      <put-attribute name="title"  value="Fornecedor"/>
+      <put-attribute name="baseContent" value="fornecedor.contentBase" />
+   </definition>
+   <definition name="fornecedor.lista"  extends="fornecedor">
+      <put-attribute name="body" value="/WEB-INF/views/fornecedor/lista.jsp" />
+   </definition>
+    <definition name="fornecedor.form"  extends="fornecedor">
+      <put-attribute name="body" value="/WEB-INF/views/fornecedor/add.jsp" />
+   </definition>  
+</tiles-definitions>
