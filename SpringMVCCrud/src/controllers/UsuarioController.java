@@ -5,6 +5,7 @@ import modelo.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,7 +54,7 @@ public class UsuarioController implements CrudController<Usuario> {
 	}
 
 	@Override
-	public String adicionar(Usuario arg) {
+	public String adicionar(Usuario arg, BindingResult result) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -65,19 +66,21 @@ public class UsuarioController implements CrudController<Usuario> {
 	}
 
 	@Override
-	public String atualizar(Usuario arg) {
+	public String atualizar(Usuario arg, BindingResult result) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public String apagar(Usuario arg) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public ModelAndView listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String apagar(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

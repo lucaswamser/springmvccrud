@@ -2,6 +2,7 @@ package services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import repositories.FornecedorRepository;
@@ -10,7 +11,7 @@ import modelo.Fornecedor;
 @Service
 public class FornecedorServiceImpl implements CrudService<Fornecedor, Integer> {
 
-	
+	@Autowired
 	private FornecedorRepository fornecedorRepository; 
 	@Override
 	public void adicionar(Fornecedor arg) {
@@ -26,14 +27,18 @@ public class FornecedorServiceImpl implements CrudService<Fornecedor, Integer> {
 
 	@Override
 	public List<Fornecedor> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return fornecedorRepository.findAll();
 	}
 
 	@Override
 	public Fornecedor encontrarPorId(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return fornecedorRepository.findOne(id);
+	}
+
+	@Override
+	public void remover(Integer id) {
+		fornecedorRepository.delete(id);
+		
 	}
 
 }

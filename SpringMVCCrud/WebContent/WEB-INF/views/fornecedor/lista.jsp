@@ -13,7 +13,7 @@
         <th width="5%"> </th>
         <th width="5%"> </th>
     </tr>
-    <c:forEach items="${fornecedors}" var="fornecedor">
+    <c:forEach items="${fornecedores}" var="fornecedor">
         <tr>
             <td>${fornecedor.idFornecedor}</td>
             <td>${fornecedor.nome}</td>

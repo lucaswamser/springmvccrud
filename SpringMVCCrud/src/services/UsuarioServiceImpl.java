@@ -60,6 +60,13 @@ public class UsuarioServiceImpl implements CrudService<Usuario, Integer> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public void remover(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

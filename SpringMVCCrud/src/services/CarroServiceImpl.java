@@ -41,4 +41,10 @@ public class CarroServiceImpl implements CrudService<Carro, Integer> {
 		return carroRepository.findOne(id);
 	}
 
+	@Override
+	public void remover(Integer id) {
+		carroRepository.delete(id);
+		
+	}
+
 }

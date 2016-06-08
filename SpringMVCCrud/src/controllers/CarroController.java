@@ -3,8 +3,11 @@ package controllers;
 import java.net.URL;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,9 +35,12 @@ public class CarroController implements CrudController<Carro> {
 	}
 
 	@Override
-	public String adicionar(Carro carro) {
+	public String adicionar(@Valid Carro carro, BindingResult result) {
+		if (!result.hasErrors()){
 		carroService.adicionar(carro);
 		return "redirect:/Carro/";
+		}
+		return "carro.form";
 	}
 
 	@Override
@@ -45,16 +51,14 @@ public class CarroController implements CrudController<Carro> {
 	}
 
 	@Override
-	public String atualizar(Carro carro) {
+	public String atualizar(@Valid Carro carro, BindingResult result) {
+		if (!result.hasErrors()){
 		carroService.atualizar(carro);
 		return "redirect:/Carro/";
+		}
+		return "carro.form";
 	}
 
-	@Override
-	public String apagar(Carro arg) {
-		return null;
-		
-	}
 
 	@Override
 	public ModelAndView listar() {
@@ -63,6 +67,12 @@ public class CarroController implements CrudController<Carro> {
 	}
 	
 
+	@Override
+	public String apagar(@PathVariable("id") String id) {
+		carroService.remover(Integer.valueOf(id));
+		return "redirect:/Carro/";
+	}
+	
 	@RequestMapping(value="/json/list",method = RequestMethod.GET)
 	public @ResponseBody List<Carro> listarJson(){
 		return carroService.listar();
